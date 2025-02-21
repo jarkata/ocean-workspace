@@ -13,3 +13,6 @@ version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/jarkata/ocean-workspace.git"
 
+[workspace.dependencies]
+ocean-macros = { path = "ocean-macros" }
+ocean-db = { path = "ocean-db" }

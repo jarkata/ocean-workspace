@@ -7,7 +7,10 @@ edition = "2021"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ##
+dirs = "4.0"
+##
 ##
 sqlx = { version = "0.8.3", features = ["runtime-tokio-native-tls", "sqlite"] }
 tokio = { version = "1.43.0", features = ["full"] }
 chrono = { version = "0.4" }
+ocean-macros = { workspace = true }
