@@ -4,8 +4,8 @@ resolver = "2"
 ##
 ##
 members = [
-    "crate/ocean-db",
-    "crate/ocean-macros"
+    "ocean-db",
+    "ocean-macros"
 ]
 
 [workspace.package]

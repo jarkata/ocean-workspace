@@ -898,7 +898,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ocean_macros"
+name = "ocean-macros"
 version = "0.1.0"
 dependencies = [
  "log",
