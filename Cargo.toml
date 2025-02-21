@@ -4,8 +4,8 @@ resolver = "2"
 ##
 ##
 members = [
-    "ocean-db",
-    "ocean-macros"
+    "ocean_db",
+    "ocean_macros"
 ]
 
 [workspace.package]
@@ -14,5 +14,5 @@ edition = "2021"
 repository = "https://github.com/jarkata/ocean-workspace.git"
 
 [workspace.dependencies]
-ocean-macros = { path = "ocean-macros" }
-ocean-db = { path = "ocean-db" }
+ocean_macros = { path = "ocean_macros" }
+ocean_db = { path = "ocean_db" }
