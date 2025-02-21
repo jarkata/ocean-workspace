@@ -135,7 +135,6 @@ where
 /// 保存数据
 ///
 pub async fn insert(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> Result<u64, String> {
-    println!("保存数据:{:?}", _values.clone());
     let query = sqlx::query(&sql);
     let insert_json = bind_cond_json_list(query, _values);
     let result = pool.execute(insert_json).await;
@@ -158,6 +157,7 @@ pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> R
         Err(_) => Err(result.unwrap_err().to_string()),
     }
 }
+
 
 
 ///
