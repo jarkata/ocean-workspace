@@ -1,0 +1,17 @@
+[package]
+name = "ocean_macros"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "ocean_macros"
+path = "src/lib.rs"
+proc-macro = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+syn = { version = "2.0", features = ["full"] }
+quote = "1.0"
+proc-macro2 = "1.0"
+log = "0.4.25"

@@ -1,0 +1,15 @@
+[workspace]
+##
+resolver = "2"
+##
+##
+members = [
+    "crate/ocean-db",
+    "crate/ocean-macros"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/jarkata/ocean-workspace.git"
+
