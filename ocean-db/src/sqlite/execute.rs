@@ -5,14 +5,6 @@ use sqlx::sqlite::{SqliteArguments, SqliteRow, SqliteStatement};
 use sqlx::types::JsonValue;
 use sqlx::{Database, Executor, FromRow, Row, Sqlite, SqlitePool, Statement};
 
-pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> u64 {
-    println!("保存数据:{:?}", _values.clone());
-    let query = sqlx::query(&sql);
-    let bind_query = bind_cond_json_list(query, _values);
-    let result = pool.execute(bind_query).await.unwrap();
-    result.rows_affected()
-}
-
 ///
 /// 支持分页查询
 /// 分页代码如下:
@@ -152,6 +144,18 @@ pub async fn insert(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> Re
         Err(_) => Err(result.unwrap_err().to_string()),
     }
 }
+
+///
+/// 执行写操作
+///
+pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> u64 {
+    println!("保存数据:{:?}", _values.clone());
+    let query = sqlx::query(&sql);
+    let bind_query = bind_cond_json_list(query, _values);
+    let result = pool.execute(bind_query).await.unwrap();
+    result.rows_affected()
+}
+
 
 ///
 /// 将公用的代码逻辑抽象为方法
