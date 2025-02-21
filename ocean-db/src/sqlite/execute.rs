@@ -148,12 +148,15 @@ pub async fn insert(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> Re
 ///
 /// 执行写操作
 ///
-pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> u64 {
+pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> Result<u64, String> {
     println!("保存数据:{:?}", _values.clone());
     let query = sqlx::query(&sql);
     let bind_query = bind_cond_json_list(query, _values);
-    let result = pool.execute(bind_query).await.unwrap();
-    result.rows_affected()
+    let result = pool.execute(bind_query).await;
+    match result {
+        Ok(_) => Ok(result.unwrap().rows_affected()),
+        Err(_) => Err(result.unwrap_err().to_string()),
+    }
 }
 
 
