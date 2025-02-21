@@ -158,8 +158,6 @@ pub async fn execute(pool: &SqlitePool, sql: &str, _values: Vec<JsonValue>) -> R
     }
 }
 
-
-
 ///
 /// 将公用的代码逻辑抽象为方法
 /// query:查询对象，按照固定参数传入
