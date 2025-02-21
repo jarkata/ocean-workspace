@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "ocean-db"
+name = "ocean_db"
 version = "0.1.0"
